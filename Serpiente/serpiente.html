@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>UD1 Proyecto1 Joaquin Conejos</title>
+    <link rel="stylesheet" href="serpiente.css">
+</head>
+<body >
+    <div class="menu">
+        MENU
+
+        <button id="iniciar">Iniciar</button>
+        <button id="pausar">Pausar</button>
+        <button id="reiniciar">Reiniciar</button>
+
+    </div>
+    
+    <div class="historial">
+        <div class="gamedetails">
+            <div class="titulo">
+                <h2>HISTORIAL</h2>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="wrapper">
+
+        <div class="gamedetails">
+
+            <div id="score">
+                <p>Puntuacion: 0</p>
+            </div>
+
+            <div class="maxScore">
+                <p>Maxima Puntuacion: 30</p>
+            </div>
+
+        </div>
+        <div class="tablero" onload="prova()">
+            <table id="tabla">
+                
+            </table>
+            
+
+        </div>
+    </div>
+
+    <div class="botones">
+        <div class="gamedetails">
+            <div class="titulo">
+                <h2>BOTONES</h2>
+                <div class="tablero">
+                    <div class="arriba">
+                        <button id="arr">⬆</button>
+                    </div>
+
+                    <div class="iad">
+                        <button id="izq">⬅</button>
+                        <button id="aba">⬇</button>
+                        <button id="der">⮕</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="serpiente.js"></script>
+</body>
+</html>

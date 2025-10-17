@@ -1,0 +1,97 @@
+/* Etiquetas */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #e3f2fd;
+}
+
+button{
+    width: 100px;
+    height: 100px;
+    
+}
+
+/* Clases */
+.menu{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: #293447;
+
+}
+
+.historial{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #293447;
+    border-radius: 5px;
+    margin: auto;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #293447;
+    border-radius: 5px;
+}
+
+.gamedetails{
+    color: #b8c6dc;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 20px 27px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tablero{
+    background-color: #212837;
+
+}
+
+.botones{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #293447;
+    border-radius: 5px;
+    margin: auto;
+    padding: 0;
+}
+
+.arriba{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tdSerpiente{
+    background-color: green;
+}
+
+.tdAlimento{
+    background-color: red;
+}
+
+/* ID's */
+#tabla td{
+    width: 20px;
+    height: 20px;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="index.js"></script>
+
+    <title>Simple MVC Website</title>
+</head>
+<body>
+    <header class="bg-primary text-white py-3 mb-4">
+        <div class="container text-center">
+            <h1 class="display-6">THIS IS A SIMPLE MVC WEBSITE WITH JQUERY</h1>
+        </div>
+    </header>
+
+    <!-- Menú debajo del header -->
+    <nav class="bg-light py-2 mb-4">
+        <div class="container">
+            <ul class="nav flex-column flex-lg-row justify-content-center">
+                <li class="nav-item">
+                    <a id="menu1" name="home" class="nav-link mvc-clickable text-dark" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a id="menu2" name="categories" class="nav-link mvc-clickable text-dark" href="#">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a id="menu3" name="productes" class="nav-link mvc-clickable text-dark" href="#">Productes</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="wrapper" class="container d-flex justify-content-center align-items-center" >
+        <section>
+            <div id="mvc-main" class="p-4 border rounded bg-light">
+                <!-- Content will be dynamically loaded here -->
+            </div>
+        </section>
+    </div>
+    
+
+    <!-- Bootstrap JS (including Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

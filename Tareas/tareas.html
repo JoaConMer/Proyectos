@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="TodoItem.js" defer> </script>
+    <script src="todoList.js" defer> </script>
+    <link rel="stylesheet" href="tareas.css">
+    <title>Lista de tareas - Joaquin Conejos</title>
+</head>
+<body>
+    <h1>LISTA DE TAREAS</h1>
+
+    <!-- Div para filtrar las tareas-->
+    <div class="filtrar">
+
+        <label for="filtrePrioritat">Filtrar per Prioritat: </label>
+        <select id="filtrePrioritat">
+            <option value="totes">Totes</option>
+            <option value="molt alta">Molt Alta</option>
+            <option value="alta">Alta</option>
+            <option value="baixa">Baixa</option>
+            <option value="molt baixa">Molt Baixa</option>
+        </select>
+        <button onclick="filtrarTasquesPrioritat()">Filtrar!</button>
+        
+        <button onclick="ordenarTasques(true)">Ordenar per Prioritat</button>   
+        
+        <button onclick="ordenarTasques(false)">Ordenar per Data</button>
+
+        <label for="filtreNom">Filtrar per Nom: </label>
+        <input type="text" id="filtreNom" value="">
+        <button onclick="filtrarTasquesNom()">Filtrar!</button>
+    </div>
+    </br>
+
+    <!-- Div en el que se mostraran los posits -->
+    <div id="llistaTasques" class="tareas">
+        
+    </div>
+    </br>
+
+    <!-- Div donde se añadiran las tareas -->
+    <div class="tarea">
+
+        <form onsubmit="afegirTasca(); return false;">
+            <fieldset>
+                <legend>Tarea</legend>
+
+                <label for="nomTasca">Tarea: </label>
+                <input type="text" id="nomTasca" placeholder="Nom de la Tasca" value=" " required>
+
+                <label for="assignatTasca">Persona: </label>
+                <input type="text" id="assignatTasca" placeholder="Assignat a" value=" " required>
+
+                <select id="prioritatTasca">
+                    <option value="molt alta">Molt Alta</option>
+                    <option value="alta">Alta</option>
+                    <option value="baixa">Baixa</option>
+                    <option value="molt baixa">Molt Baixa</option>
+                </select>
+
+                <button type="submit">AFEGIR TASCA!</button>
+            </fieldset>
+        </form>
+    
+
+    </div>
+</body>
+</html>

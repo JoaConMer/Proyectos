@@ -1,0 +1,134 @@
+<div class="container my-4">
+    <h2 id="productesTitol" class="text-center mb-4">PRODUCTES</h2>
+    <form id="productForm">
+        <!-- ID -->
+        <div class="mb-3">
+            <label for="id" class="form-label">ID</label>
+            <input type="text" id="id" class="form-control" placeholder="ID autoincrementable es automatico" disabled>
+        </div>
+
+        <!-- Cat ID -->
+        <div class="mb-3">
+            <label for="catid" class="form-label">Categoría</label>
+            <select id="catid" class="form-select" name="seleCategorias" required>
+                <option value="" disabled selected>Selecciona una categoria</option>
+                <!-- Las categorías se agregarán aquí dinámicamente -->
+            </select>
+            <div class="invalid-feedback">Por favor, selecciona una categoría.</div>
+        </div>
+
+        <!-- Name -->
+        <div class="mb-3">
+            <label for="name" class="form-label">Nombre</label>
+            <input type="text" id="name" class="form-control" placeholder="Enter Product Name" required>
+            <div class="invalid-feedback">El nombre del producto es obligatorio.</div>
+        </div>
+
+        <!-- Descripción -->
+        <div class="mb-3">
+            <label for="desc" class="form-label">Descripción</label>
+            <textarea id="desc" class="form-control" rows="3" placeholder="Enter Description" required></textarea>
+            <div class="invalid-feedback">La descripción es obligatoria.</div>
+        </div>
+
+        <!-- PVP -->
+        <div class="mb-3">
+            <label for="pvp" class="form-label">PVP</label>
+            <input type="number" id="pvp" class="form-control" placeholder="Enter PVP" required min="0">
+            <div class="invalid-feedback">Por favor, ingresa un precio válido.</div>
+        </div>
+
+        <!-- Referencia -->
+        <div class="mb-3">
+            <label for="ref" class="form-label">Referencia</label>
+            <input type="text" id="ref" class="form-control" placeholder="Enter Reference" required pattern="^[A-Za-z]{3}-\d{4}$">
+            <div class="invalid-feedback">La referencia es obligatoria.</div>
+        </div>
+
+        <!-- Img URL -->
+        <div class="mb-3">
+            <label for="img_url" class="form-label">Img URL</label>
+            <input type="text" id="img_url" class="form-control" placeholder="Enter Image URL" >
+            <div class="invalid-feedback">La URL de la imagen es obligatoria.</div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="d-flex justify-content-end">
+            <button type="submit" id="saveProducte" class="btn btn-primary me-2 mvc-clickable" name="insertProducte">Guardar</button>
+            <button type="button" id="cancelProducte" class="btn btn-secondary mvc-clickable" name="productes">Cancelar</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Validación en tiempo real
+    document.getElementById('productForm').addEventListener('input', function (e) {
+        const field = e.target;
+
+        // Validación personalizada para el campo PVP (no negativo)
+        if (field.id === "pvp" && field.value < 0) {
+            field.classList.add('is-invalid');
+            field.classList.remove('is-valid');
+            field.nextElementSibling.style.display = 'block';  // Mostrar mensaje de error
+        } else if (field.id === "pvp") {
+            field.classList.add('is-valid');
+            field.classList.remove('is-invalid');
+            field.nextElementSibling.style.display = 'none';  // Ocultar mensaje de error
+        }
+
+        // Validación personalizada para el campo Referencia (3 letras seguidas de 4 números)
+        if (field.id === "ref") {
+            const regex = /^[A-Za-z]{3}-\d{4}$/;
+            if (!regex.test(field.value)) {
+                field.classList.add('is-invalid');
+                field.classList.remove('is-valid');
+                field.nextElementSibling.style.display = 'block';  // Mostrar mensaje de error
+            } else {
+                field.classList.add('is-valid');
+                field.classList.remove('is-invalid');
+                field.nextElementSibling.style.display = 'none';  // Ocultar mensaje de error
+            }
+        }
+
+        // Validación general para otros campos
+        if (field.checkValidity() && field.id !== "pvp" && field.id !== "ref") {
+            field.classList.add('is-valid');
+            field.classList.remove('is-invalid');
+            field.nextElementSibling.style.display = 'none';  // Ocultar mensaje de error
+        } else if (field.id !== "pvp" && field.id !== "ref") {
+            field.classList.add('is-invalid');
+            field.classList.remove('is-valid');
+            field.nextElementSibling.style.display = 'block';  // Mostrar mensaje de error
+        }
+    });
+
+    // Validación al enviar el formulario
+    document.getElementById('productForm').addEventListener('submit', function (e) {
+        e.preventDefault();  // Evitar envío del formulario si hay errores
+
+        const form = e.target;
+        let isValid = true;
+
+        // Verificar todos los campos
+        Array.from(form.elements).forEach((field) => {
+            // Evitar validar campos deshabilitados como 'id'
+            if (field.id === "id") return;
+
+            if (!field.checkValidity()) {
+                field.classList.add('is-invalid');
+                field.classList.remove('is-valid');
+                field.nextElementSibling.style.display = 'block';  // Mostrar mensaje de error
+                isValid = false;
+            } else {
+                field.classList.add('is-valid');
+                field.classList.remove('is-invalid');
+                field.nextElementSibling.style.display = 'none';  // Ocultar mensaje de error
+            }
+        });
+
+        if (isValid) {
+            alert('Formulario enviado correctamente.');
+            // Aquí puedes agregar la lógica para enviar los datos del formulario a la base de datos.
+        }
+    });
+</script>
